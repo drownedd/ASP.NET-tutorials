@@ -12,7 +12,7 @@ using api.Data;
 namespace api.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20241014131514_init")]
+    [Migration("20241015073915_init")]
     partial class init
     {
         /// <inheritdoc />

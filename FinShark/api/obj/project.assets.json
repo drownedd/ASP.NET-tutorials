@@ -4472,19 +4472,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\drwni\\.nuget\\packages\\": {}
+    "C:\\Users\\drwni\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\drwni\\Documents\\Projects\\Tutorials\\FinShark\\api\\api.csproj",
+      "projectUniqueName": "D:\\projects\\csharp\\ASP.NET-tutorials\\FinShark\\api\\api.csproj",
       "projectName": "api",
-      "projectPath": "C:\\Users\\drwni\\Documents\\Projects\\Tutorials\\FinShark\\api\\api.csproj",
+      "projectPath": "D:\\projects\\csharp\\ASP.NET-tutorials\\FinShark\\api\\api.csproj",
       "packagesPath": "C:\\Users\\drwni\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\drwni\\Documents\\Projects\\Tutorials\\FinShark\\api\\obj\\",
+      "outputPath": "D:\\projects\\csharp\\ASP.NET-tutorials\\FinShark\\api\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\drwni\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4505,11 +4510,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -4554,7 +4554,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

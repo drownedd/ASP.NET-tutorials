@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iQzyEh+VJnE=",
+  "dgSpecHash": "M71Bi0bRTSGi9FNF6yfX1aiUML33Lr0aN+F4men2YAmU/zI356iyMBuZNgpD5dSO6R17fxwUQGIBiqsBz1YUJw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\drwni\\Documents\\Projects\\Tutorials\\FinShark\\api\\api.csproj",
+  "projectFilePath": "D:\\projects\\csharp\\ASP.NET-tutorials\\FinShark\\api\\api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\drwni\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\drwni\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
