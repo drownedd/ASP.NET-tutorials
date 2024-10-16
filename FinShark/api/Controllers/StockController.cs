@@ -1,4 +1,5 @@
 using api.Dtos.Stock;
+using api.Helpers;
 using api.Interfaces;
 using api.Mappers;
 using Microsoft.AspNetCore.Mvc;
@@ -18,9 +19,11 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] Query query)
         {
-            var stocks = await _stockRepository.GetAllAsync();
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var stocks = await _stockRepository.GetAllAsync(query);
             var stocksDtos = stocks.Select(s => s.ToDto());
 
             return Ok(stocksDtos);
@@ -29,6 +32,8 @@ namespace api.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
             var stock = await _stockRepository.GetByIdAsync(id);
 
             if (stock == null) return NotFound();
@@ -65,6 +70,8 @@ namespace api.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
             var stock = await _stockRepository.DeleteAsync(id);
 
             if (stock == null) return NotFound();
