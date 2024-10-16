@@ -32,7 +32,7 @@ namespace api.Controllers
         {
             var comment = await _commentRepository.GetByIdAsync(id);
 
-            if (comment == null) return NotFound();
+            if (comment == null) return NotFound("Comment not found");
 
             return Ok(comment.ToDto());
         }
@@ -54,7 +54,7 @@ namespace api.Controllers
         {
             var comment = await _commentRepository.UpdateAsync(id, updateDto);
 
-            if (comment == null) return NotFound();
+            if (comment == null) return NotFound("Comment not found");
 
             return Ok(comment.ToDto());
         }

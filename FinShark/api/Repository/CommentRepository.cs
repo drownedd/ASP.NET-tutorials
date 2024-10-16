@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using api.Data;
 using api.Dtos.Comment;
 using api.Interfaces;
@@ -51,7 +47,16 @@ namespace api.Repository
 
         public async Task<Comment?> UpdateAsync(int id, UpdateCommentDto comment)
         {
-            throw new NotImplementedException();
+            var existingComment = await _context.Comments.FindAsync(id);
+
+            if (existingComment == null) return null;
+
+            existingComment.Title = comment.Title;
+            existingComment.Content = comment.Content;
+
+            await _context.SaveChangesAsync();
+
+            return existingComment;
         }
 
     }
