@@ -9,7 +9,7 @@ namespace api.Mappers
 {
     public static class StockMappers
     {
-        public static StockDto ToStockDto(this Stock stockModel)
+        public static StockDto ToDto(this Stock stockModel)
         {
             return new StockDto
             {
@@ -20,10 +20,11 @@ namespace api.Mappers
                 LastDiv = stockModel.LastDiv,
                 Industry = stockModel.Industry,
                 MarketCap = stockModel.MarketCap,
+                Comments = stockModel.Comments.Select(c => c.ToDto()).ToList()
             };
         }
 
-        public static Stock ToStockFromCreateDTO(this CreateStockRequestDto stockDto)
+        public static Stock ToStock(this CreateStockDto stockDto)
         {
             return new Stock
             {
