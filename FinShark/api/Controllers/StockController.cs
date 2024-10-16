@@ -1,13 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using api.Data;
 using api.Dtos.Stock;
 using api.Interfaces;
 using api.Mappers;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
@@ -16,12 +10,10 @@ namespace api.Controllers
     public class StockController : ControllerBase
     {
 
-        private readonly ApplicationDBContext _context;
         private readonly IStockRepository _stockRepository;
 
-        public StockController(ApplicationDBContext context, IStockRepository stockRepository)
+        public StockController(IStockRepository stockRepository)
         {
-            _context = context;
             _stockRepository = stockRepository;
         }
 
@@ -34,7 +26,7 @@ namespace api.Controllers
             return Ok(stocksDtos);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var stock = await _stockRepository.GetByIdAsync(id);
@@ -47,6 +39,8 @@ namespace api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateStockDto stockDto)
         {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
             var stock = stockDto.ToStock();
 
             await _stockRepository.CreateAsync(stock);
@@ -55,9 +49,11 @@ namespace api.Controllers
         }
 
         [HttpPut]
-        [Route("{id}")]
+        [Route("{id:int}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateStockDto updateDto)
         {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
             var stock = await _stockRepository.UpdateAsync(id, updateDto);
 
             if (stock == null) return NotFound();
@@ -66,7 +62,7 @@ namespace api.Controllers
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var stock = await _stockRepository.DeleteAsync(id);
