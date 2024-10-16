@@ -69,11 +69,11 @@ namespace api.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            var stockModel = await _stockRepository.DeleteAsync(id);
+            var stock = await _stockRepository.DeleteAsync(id);
 
-            if (stockModel == null) return NotFound();
+            if (stock == null) return NotFound();
 
-            return NoContent();
+            return Ok(stock.ToDto());
         }
     }
 }
